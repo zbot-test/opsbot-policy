@@ -1,0 +1,28 @@
+# A fresh account's first central policy (design-aws.md §9.4 step 5, plan.md WP-76):
+# every action kind and fix type in `mode: dryrun`, so the agent proposes and records what it
+# would do without ever calling an Actuator or merging anything, for as long as it takes an
+# operator to watch a few digests and trust the output. Same action kinds as
+# examples/policy/policy.yaml, every `mode: live` there flipped to `dryrun` here.
+version: "1"
+action_kinds:
+  block_ip:
+    max_level: L3
+    ephemeral: true
+    mode: dryrun
+  rollback:
+    max_level: L2
+    ephemeral: false
+    mode: dryrun
+  merge:
+    max_level: L2
+    ephemeral: false
+    mode: dryrun
+  revoke_credentials:
+    max_level: L2
+    ephemeral: true
+    mode: dryrun
+fix_types:
+  dependency_bump:
+    merge_level: L2
+    mode: dryrun
+approvers: [ops-team]
