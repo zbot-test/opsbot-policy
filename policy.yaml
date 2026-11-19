@@ -1,8 +1,6 @@
-# A fresh account's first central policy (design-aws.md §9.4 step 5, plan.md WP-76):
-# every action kind and fix type in `mode: dryrun`, so the agent proposes and records what it
-# would do without ever calling an Actuator or merging anything, for as long as it takes an
-# operator to watch a few digests and trust the output. Same action kinds as
-# examples/policy/policy.yaml, every `mode: live` there flipped to `dryrun` here.
+# The test org's central policy: examples/policy-dryrun/policy.yaml with dependency_bump live,
+# so a vulnerability finding opens its change in a sandbox repo. testenv/github_reset.py
+# installs it in opsbot-policy.
 version: "1"
 action_kinds:
   block_ip:
@@ -24,5 +22,5 @@ action_kinds:
 fix_types:
   dependency_bump:
     merge_level: L2
-    mode: dryrun
+    mode: live
 approvers: [ops-team]
