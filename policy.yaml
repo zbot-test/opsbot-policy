@@ -27,7 +27,7 @@ detectors:
     mode: live
     defaults:
       warmup: 0m
-      dormancy: 1h
+      dormancy: 5m
 protected_principals:
   - aws:arn:aws:iam::199618931467:user/opsbot-test-user
   - aws:arn:aws:iam::199618931467:role/opsbot-test-role
