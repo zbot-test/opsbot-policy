@@ -1,0 +1,5 @@
+incident: true
+severity: high
+signals:
+  - kind: threat_sequence
+    entities: [{ kind: resource, id: "aws:arn:aws:iam::123456789012:user/GeneratedFindingUserName" }]
