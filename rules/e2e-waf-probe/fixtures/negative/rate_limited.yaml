@@ -1,0 +1,5 @@
+incident: false
+signals:
+  - kind: volume_anomaly
+    entities: [{ kind: resource, id: "aws:arn:aws:wafv2:eu-central-1:199618931467:regional/webacl/opsbot-staging-vulnerable/id" }]
+    attributes: { source_ip: 198.51.100.7, rule_id: rate-limit, match_count: 1 }
