@@ -1,7 +1,11 @@
 id: e2e-waf-probe
 mode: live
 when:
-  - { kind: probe, within: 15m }
+  # The ALB is public: scanners' probes would join the incident, and block_ip refuses more than one address.
+  - kind: probe
+    within: 15m
+    where:
+      source_ip: { eq: 35.156.197.172 }
 same: resource
 severity: high
 actions:
