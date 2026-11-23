@@ -1,0 +1,7 @@
+incident: true
+severity: medium
+signals:
+  - kind: access_anomaly
+    source: "core:rare_principal_use"
+    entities: [{ kind: principal, id: "aws:arn:aws:iam::199618931467:user/opsbot-test-canary" }]
+    attributes: { service: s3, action: ListBuckets }
