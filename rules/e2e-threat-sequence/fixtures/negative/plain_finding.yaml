@@ -1,0 +1,4 @@
+incident: false
+signals:
+  - kind: access_anomaly
+    entities: [{ kind: resource, id: "aws:arn:aws:iam::123456789012:user/GeneratedFindingUserName" }]
