@@ -1,0 +1,12 @@
+id: e2e-canary-key-use
+mode: live
+when:
+  - kind: access_anomaly
+    within: 1h
+    where:
+      service: { eq: s3 }
+      action: { eq: ListBuckets }
+same: principal
+severity: medium
+actions:
+  revoke_credentials: L2
