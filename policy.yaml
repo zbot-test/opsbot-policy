@@ -1,9 +1,11 @@
 version: "1"
+max_signals_per_group: 2
 action_kinds:
   block_ip:
     max_level: L3
     ephemeral: true
-    mode: dryrun
+    mode: live
+    params_from: { address: source_ip, scope: waf_scope }
   rollback:
     max_level: L2
     ephemeral: false
@@ -15,9 +17,18 @@ action_kinds:
   revoke_credentials:
     max_level: L2
     ephemeral: true
-    mode: dryrun
+    mode: live
 fix_types:
   dependency_bump:
     merge_level: L2
     mode: live
+detectors:
+  rare_principal_use:
+    mode: live
+    defaults:
+      warmup: 0m
+      dormancy: 1h
+protected_principals:
+  - aws:arn:aws:iam::199618931467:user/opsbot-test-user
+  - aws:arn:aws:iam::199618931467:role/opsbot-test-role
 approvers: [ops-team]
