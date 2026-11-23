@@ -1,0 +1,9 @@
+incident: false
+signals:
+  - kind: access_anomaly
+    source: "core:rare_principal_use"
+    entities: [{ kind: principal, id: "aws:arn:aws:iam::199618931467:user/opsbot-test-canary" }]
+    attributes: { service: s3, action: GetObject }
+  - kind: access_anomaly
+    entities: [{ kind: principal, id: "aws:arn:aws:iam::199618931467:user/opsbot-test-canary" }]
+    attributes: { finding_type: "UnauthorizedAccess:IAMUser/MaliciousIPCaller", account_id: "199618931467" }
