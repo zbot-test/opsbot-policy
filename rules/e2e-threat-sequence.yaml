@@ -1,0 +1,6 @@
+id: e2e-threat-sequence
+mode: live
+when:
+  - { kind: threat_sequence, within: 1h }
+same: resource
+severity: high
