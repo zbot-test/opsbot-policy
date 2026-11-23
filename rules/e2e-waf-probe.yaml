@@ -1,0 +1,8 @@
+id: e2e-waf-probe
+mode: live
+when:
+  - { kind: probe, within: 15m }
+same: resource
+severity: high
+actions:
+  block_ip: L3
