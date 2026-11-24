@@ -4,6 +4,8 @@ action_kinds:
   block_ip:
     max_level: L3
     ephemeral: true
+    default_expiry: 5m
+    max_total_duration: 30m
     mode: live
     params_from: { address: source_ip, scope: waf_scope }
   rollback:
